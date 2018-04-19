@@ -24,7 +24,7 @@ To make this the default Rails application template on your system, create a `~/
 --webpack
 -d postgresql
 -T
--m https://raw.githubusercontent.com/damienlethiec/modern-rails-template/master/template.rb
+-m https://raw.githubusercontent.com/SlimBN/railtor/master/template.rb
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ rails new blog \
   --webpack \
   -d postgresql \
   -T \
-  -m https://raw.githubusercontent.com/damienlethiec/modern-rails-template/master/template.rb
+  -m https://raw.githubusercontent.com/SlimBN/railtor/master/template.rb
 ```
 
 _Remember that options must go after the name of the application._ The only database supported by this template is `postgresql`.
@@ -97,7 +97,7 @@ When you launch a new rails app with the template, a few questions will be asked
 
 This project works by hooking into the standard Rails application templates system, with some caveats. The entry point is the `template.rb` file in the root of this repository.
 
-Normally, Rails only allows a single file to be specified as an application template (i.e. using the `-m <URL>` option). To work around this limitation, the first step this template performs is a `git clone` of the `damienlethiec/modern-rails-template` repository to a local temporary directory.
+Normally, Rails only allows a single file to be specified as an application template (i.e. using the `-m <URL>` option). To work around this limitation, the first step this template performs is a `git clone` of the `SlimBN/railtor` repository to a local temporary directory.
 
 This temporary directory is then added to the `source_paths` of the Rails generator system, allowing all of its ERb templates and files to be referenced when the application template script is evaluated.
 
@@ -109,7 +109,7 @@ If you want to contribute, please have a look to the issues in this repository a
 
 [thor]: https://github.com/erikhuda/thor
 [here]: https://github.com/mattbrictson/rails-template
-[contributions]: https://github.com/damienlethiec/modern-rails-template#contributing
+[contributions]: https://github.com/SlimBN/railtor#contributing
 [procfile]: http://guides.rubyonrails.org/i18n.html
 [i18n]: http://guides.rubyonrails.org/i18n.html
 [uuid]: https://lab.io/articles/2017/04/13/uuids-rails-5-1/

@@ -85,6 +85,7 @@ def ask_optional_options
   @komponent = yes?('Do you want to adopt a component based design for your front-end?')
   @tailwind = yes?('Do you want to use Tailwind as a CSS framework?')
   @github = yes?('Do you want to push your project to Github?')
+  @autoprefixer = yes?('Do you want to add autoprefixer to your project?')
 end
 
 def install_optional_gems
@@ -92,6 +93,7 @@ def install_optional_gems
   add_pundit if @pundit
   add_komponent if @komponent
   add_haml if @haml
+  add_autoprefixer if @autoprefixer
 end
 
 def add_devise
@@ -155,6 +157,9 @@ def add_css_framework
   end
 end
 
+def add_autoprefixer
+  insert_into_file 'Gemfile', "gem 'autoprefixer-rails'\n", after: /'friendly_id'\n/
+end
 
 
 def setup_gems
@@ -170,6 +175,7 @@ def setup_gems
   setup_devise if @devise
   setup_pundit if @pundit
   setup_haml if @haml
+  setup_autoprefixer if @autoprefixer
 end
 
 def setup_friendly_id
@@ -289,6 +295,10 @@ end
 
 def setup_haml
   run 'HAML_RAILS_DELETE_ERB=true rake haml:erb2haml'
+end
+
+def setup_autoprefixer
+  run 'rake tmp:clear'
 end
 
 
